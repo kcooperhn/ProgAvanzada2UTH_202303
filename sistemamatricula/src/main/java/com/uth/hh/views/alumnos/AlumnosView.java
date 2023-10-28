@@ -144,10 +144,10 @@ public class AlumnosView extends Div implements BeforeEnterObserver {
         numerocuenta.setLabel("Número de Cuenta");
         numerocuenta.setValue(0.0);
         
-        nombre = new TextField("Nombre");
+        nombre = new TextField("Nombre del Alumno");
         nombre.setPrefixComponent(VaadinIcon.USER.create());
         
-        apellido = new TextField("Apellido");
+        apellido = new TextField("Apellido del Alumno");
         apellido.setPrefixComponent(VaadinIcon.USER_CARD.create());
         
         ComboBox<String> genero = new ComboBox<>("Genero");
