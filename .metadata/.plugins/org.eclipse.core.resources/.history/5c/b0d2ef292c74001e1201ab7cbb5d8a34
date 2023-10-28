@@ -1,0 +1,23 @@
+package sistemamatricula.test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AlumnosTest {
+
+	public static void main(String[] args) {
+		//WebDriver driver = new FirefoxDriver();
+		//System.setProperty("webdriver.firefox.driver", "./drivers/firefoxdriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://localhost:8080/alumnos");
+		
+		WebElement camponombre = driver.findElement(By.id("nombreUsuario"));
+		
+		WebElement boton = driver.findElement(By.id("guardaralumno"));
+		boton.click();
+
+	}
+}

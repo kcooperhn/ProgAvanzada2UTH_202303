@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\FranklinTeruel\Areas_Franklin-main\areas-junit\areas-junit"/>
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\PrincessSmith\Area-de-figuras-geom-trica-main\Calcular-Area\Calcular-Area"/>
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\CristhianReynaldo\Tarea-1_Parcial_-I-main\Tarea_1\Tarea_1"/>
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\HenryMonge\PAII_2023-3-main\calcAreas\calcAreas"/>
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\ElsaMeza\Tarea-1-calculadoradeAreas-primerparcial-main\CalculadoraAreas\CalculadoraAreas"/>
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\JoseCueva\Tarea-1---I-Parcial-main\operaciones-junit\operaciones-junit"/>
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\AdolfoCarranza\ProgramacionAvanzada2AdolfoCarranza-main"/>
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\SheylaCanales\tarea1-main\tarea1parcial\tarea1parcial"/>
+			<item value="C:\projects\ProgAvan2UTH_202303\sistemamatricula"/>
+			<item value="C:\projects\ProgAvan2UTH_202303\sistema-matricula"/>
+			<item value="C:\Users\kj_al\Downloads\Tareas1P\OscarCalixTarea1\Tarea1"/>
+			<item value="C:\projects\ProgAvan2UTH_202303\my-app"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

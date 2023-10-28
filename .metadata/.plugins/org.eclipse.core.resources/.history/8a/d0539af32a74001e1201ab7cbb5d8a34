@@ -1,0 +1,17 @@
+package sistemamatricula.test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class AlumnosTest {
+
+	public static void main(String[] args) {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://localhost:8080");
+		WebElement boton = driver.findElement(By.id("botonId"));
+		boton.click();
+
+	}
+}

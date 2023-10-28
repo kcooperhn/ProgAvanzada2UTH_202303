@@ -1,0 +1,17 @@
+1698339812201	Rename field 'ALUMNO_ID'
+1698339829263	Rename field 'ALUMNO_EDIT_ROUTE_TEMPLATE'
+1698339886362	Rename field 'alumnoService'
+1698339894007	Rename local variable 'alumnoService'
+1698339958092	Rename field 'campus'
+1698339965751	Rename field 'alumno'
+1698339989838	Rename local variable 'alumnoId'
+1698341066742	Rename field 'apellido'
+1698341072899	Rename field 'genero'
+1698341089690	Rename field 'email'
+1698341163621	Rename local variable 'alumnoFromBackend'
+1698343257120	Rename package 'sistemamatricula'
+1698452510589	Delete element
+1698452636409	Delete elements
+1698452682501	Delete elements
+1698452836042	Delete element
+1698452843312	Delete element
