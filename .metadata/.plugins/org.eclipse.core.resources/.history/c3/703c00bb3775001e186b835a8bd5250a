@@ -67,7 +67,7 @@ public class AlumnosView extends Div implements BeforeEnterObserver {
         grid.addColumn("nombre").setAutoWidth(true);
         grid.addColumn("apellido").setAutoWidth(true);
         grid.addColumn("genero").setAutoWidth(true).setHeader("Género");
-        grid.addColumn("email").setAutoWidth(true).setHeader("Correo Electrónico");
+        grid.addColumn("email").setAutoWidth(true);
         grid.addColumn("telefono").setAutoWidth(true).setHeader("Teléfono");
         grid.addColumn("campus").setAutoWidth(true);
 
@@ -156,7 +156,7 @@ public class AlumnosView extends Div implements BeforeEnterObserver {
         genero.setHelperText("Seleccione el genero del alumno");
         
         EmailField email = new EmailField();
-        email.setLabel("Correo Electrónico");
+        email.setLabel("Email");
         email.getElement().setAttribute("name", "email");
         email.setValue("");
         email.setErrorMessage("Ingresa un correo electrónico valido");

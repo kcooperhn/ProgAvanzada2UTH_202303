@@ -156,7 +156,7 @@ public class AlumnosView extends Div implements BeforeEnterObserver {
         genero.setHelperText("Seleccione el genero del alumno");
         
         EmailField email = new EmailField();
-        email.setLabel("Correo Electrónico");
+        email.setLabel("Email");
         email.getElement().setAttribute("name", "email");
         email.setValue("");
         email.setErrorMessage("Ingresa un correo electrónico valido");
