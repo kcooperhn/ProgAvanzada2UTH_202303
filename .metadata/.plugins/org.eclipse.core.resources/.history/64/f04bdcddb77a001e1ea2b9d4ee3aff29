@@ -1,0 +1,6 @@
+package com.uth.hh.model;
+
+public class DatabaseRepositoryImpl {
+	
+	
+}

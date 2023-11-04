@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="org.junit.AfterClass"/>
     <fullyQualifiedTypeName name="org.junit.Test"/>
     <fullyQualifiedTypeName name="com.uth.hn.calculadora_junit.App"/>
-    <fullyQualifiedTypeName name="com.uth.hh.data.Campus"/>
     <fullyQualifiedTypeName name="com.uth.hh.services.CampusService"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxDriver"/>
@@ -18,4 +17,10 @@
     <fullyQualifiedTypeName name="io.github.bonigarcia.wdm.WebDriverManager"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.By.ByXPath"/>
+    <fullyQualifiedTypeName name="com.vaadin.flow.component.textfield.NumberField"/>
+    <fullyQualifiedTypeName name="com.vaadin.flow.component.textfield.EmailField"/>
+    <fullyQualifiedTypeName name="com.vaadin.flow.component.icon.VaadinIcon"/>
+    <fullyQualifiedTypeName name="com.vaadin.flow.component.combobox.ComboBox"/>
+    <fullyQualifiedTypeName name="com.uth.hh.data.Campus"/>
+    <fullyQualifiedTypeName name="com.vaadin.flow.component.icon.Icon"/>
 </qualifiedTypeNameHistroy>

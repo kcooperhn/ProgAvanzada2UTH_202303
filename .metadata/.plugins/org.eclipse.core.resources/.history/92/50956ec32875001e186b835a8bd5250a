@@ -1,4 +1,0 @@
-@NonNullApi
-package com.uth.hh.data;
-
-import org.springframework.lang.NonNullApi;

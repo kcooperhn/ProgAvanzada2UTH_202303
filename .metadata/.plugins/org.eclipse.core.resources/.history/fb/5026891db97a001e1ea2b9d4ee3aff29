@@ -1,0 +1,14 @@
+package com.uth.hh.model;
+
+public class DatabaseClient {
+
+	public DatabaseClient(String url, Long timeout) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public DatabaseRepositoryImpl getDatabase() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

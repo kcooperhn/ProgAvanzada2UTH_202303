@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.uth.hh.services&apos; to &apos;com.uth.hh.model&apos;&#x0D;&#x0A;- Original project: &apos;sistemamatricula&apos;&#x0D;&#x0A;- Original element: &apos;sistemamatricula/src/main/java/com.uth.hh.services&apos;&#x0D;&#x0A;- Renamed element: &apos;sistemamatricula/src/main/java/com.uth.hh.model&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.uth.hh.services&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.uth.hh.services" name="com.uth.hh.model" qualified="false" references="true" stamp="1699057637995" textual="false" version="1.0"/>
+</session>

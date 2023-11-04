@@ -1,0 +1,12 @@
+package com.uth.hh.model;
+
+public class DatabaseRepositoryImpl {
+	
+	private static DatabaseRepositoryImpl INSTANCE;
+	private DatabaseClient client;
+	
+	private DatabaseRepositoryImpl(String url, Long timeout) {
+		client = new DatabaseClient(url, timeout);
+	}
+	
+}
