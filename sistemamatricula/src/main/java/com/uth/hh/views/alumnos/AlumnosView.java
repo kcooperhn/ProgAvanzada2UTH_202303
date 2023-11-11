@@ -87,6 +87,8 @@ public class AlumnosView extends Div implements BeforeEnterObserver {
             clearForm();
             refreshGrid();
         });
+        
+        save.setId("btnguardaralumno");
       
         save.addClickListener(e -> {
             try {
@@ -140,11 +142,13 @@ public class AlumnosView extends Div implements BeforeEnterObserver {
 
         FormLayout formLayout = new FormLayout();
         
-        NumberField numerocuenta = new NumberField();
+        numerocuenta = new NumberField();
+        numerocuenta.setId("txtnumerocuenta");
         numerocuenta.setLabel("Número de Cuenta");
         numerocuenta.setValue(0.0);
         
         nombre = new TextField("Nombre del Alumno");
+        nombre.setId("txtnombre");
         nombre.setPrefixComponent(VaadinIcon.USER.create());
         
         apellido = new TextField("Apellido del Alumno");

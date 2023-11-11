@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class AlumnosTest {
 
@@ -23,12 +23,12 @@ public class AlumnosTest {
 	         .until(titleIs("Alumnos"));
 			
 			//WebElement campocuenta = driver.findElement(By.xpath("//input[@id='input-vaadin-text-field-22']"));
-			WebElement campocuenta = driver.findElement(By.xpath("//vaadin-text-field[@id='txtnumerocuenta']/input"));
+			//WebElement campocuenta = driver.findElement(By.xpath("//vaadin-text-field[@id='txtnumerocuenta']/input"));
 			WebElement camponombre = driver.findElement(By.xpath("//vaadin-text-field[@id='txtnombre']/input"));
 			
-			campocuenta.click();
-			campocuenta.sendKeys("2023123456789");
-			Thread.sleep(1000);
+			/*campocuenta.click();
+			campocuenta.sendKeys("2023123456789");*/
+			Thread.sleep(10000);
 			camponombre.click();
 			camponombre.sendKeys("pedro perez");
 			Thread.sleep(1000);
