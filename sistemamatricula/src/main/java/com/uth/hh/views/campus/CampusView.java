@@ -1,9 +1,14 @@
 package com.uth.hh.views.campus;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.orm.ObjectOptimisticLockingFailureException;
 
+import com.uth.hh.controller.CampusInteractor;
+import com.uth.hh.controller.CampusInteractorImpl;
 import com.uth.hh.data.Campus;
 import com.uth.hh.views.MainLayout;
 import com.vaadin.flow.component.UI;
@@ -28,7 +33,7 @@ import com.vaadin.flow.router.Route;
 
 @PageTitle("Campus")
 @Route(value = "campus/:campusID?/:action?(edit)", layout = MainLayout.class)
-public class CampusView extends Div implements BeforeEnterObserver {
+public class CampusView extends Div implements BeforeEnterObserver, CampusViewModel {
 
     private final String CAMPUS_ID = "campusID";
     private final String CAMPUS_EDIT_ROUTE_TEMPLATE = "campus/%s/edit";
@@ -44,12 +49,15 @@ public class CampusView extends Div implements BeforeEnterObserver {
     private final Button cancel = new Button("Cancelar");
     private final Button save = new Button("Guardar");
 
-    private final BeanValidationBinder<Campus> binder;
-
     private Campus campus;
+    private CampusInteractor controlador;
+    private List<Campus> elementos;
 
     public CampusView() {
         addClassNames("campus-view");
+        
+        controlador = new CampusInteractorImpl(this);
+        this.elementos = new ArrayList<>();
 
         // Create UI
         SplitLayout splitLayout = new SplitLayout();
@@ -77,11 +85,8 @@ public class CampusView extends Div implements BeforeEnterObserver {
             }
         });
 
-        // Configure Form
-        binder = new BeanValidationBinder<>(Campus.class);
-
-        binder.bindInstanceFields(this);
-
+        controlador.consultarCampus();
+        
         cancel.addClickListener(e -> {
             clearForm();
             refreshGrid();
@@ -91,42 +96,61 @@ public class CampusView extends Div implements BeforeEnterObserver {
             try {
                 if (this.campus == null) {
                     this.campus = new Campus();
+                    //ESTOY CREANDO UN NUEVO CAMPUS
+                    
+                    this.campus.setNombre(this.nombre.getValue());
+                    this.campus.setDepartamento(this.departamento.getValue());
+                    this.campus.setCiudad(this.ciudad.getValue());
+                    this.campus.setDireccion(this.direccion.getValue());
+                    this.campus.setTelefono(this.telefono.getValue());
+                    
+                    this.controlador.crearCampus(campus);
+                }else {
+                	//ESTOY ACTUALIZANDO UNO QUE YA EXISTE
+                	
+                	
+                	
                 }
-                binder.writeBean(this.campus);
                 clearForm();
                 refreshGrid();
-                Notification.show("Data updated");
                 UI.getCurrent().navigate(CampusView.class);
             } catch (ObjectOptimisticLockingFailureException exception) {
                 Notification n = Notification.show(
                         "Error updating the data. Somebody else has updated the record while you were making changes.");
                 n.setPosition(Position.MIDDLE);
                 n.addThemeVariants(NotificationVariant.LUMO_ERROR);
-            } catch (ValidationException validationException) {
-                Notification.show("Failed to update the data. Check again that all values are valid");
             }
         });
     }
 
     @Override
     public void beforeEnter(BeforeEnterEvent event) {
-        Optional<Long> campusId = event.getRouteParameters().get(CAMPUS_ID).map(Long::parseLong);
+        Optional<Integer> campusId = event.getRouteParameters().get(CAMPUS_ID).map(Integer::parseInt);
         if (campusId.isPresent()) {
-            /*Optional<Campus> campusFromBackend = campusService.get(campusId.get());
-            if (campusFromBackend.isPresent()) {
-                populateForm(campusFromBackend.get());
+            Campus campusFromBackend = obtenerCampus(campusId.get());
+            if (campusFromBackend != null) {
+                populateForm(campusFromBackend);
             } else {
-                Notification.show(String.format("The requested alumno was not found, ID = %s", campusId.get()), 3000,
+                Notification.show(String.format("El campus con ID = %s no existe", campusId.get()), 3000,
                         Notification.Position.BOTTOM_START);
-                // when a row is selected but the data is no longer available,
-                // refresh grid
                 refreshGrid();
                 event.forwardTo(CampusView.class);
-            }*/
+            }
         }
     }
 
-    private void createEditorLayout(SplitLayout splitLayout) {
+    private Campus obtenerCampus(Integer campusId) {
+    	Campus campusEncontrado = null;
+		for (Campus campus : elementos) {
+			if(campus.getId() == campusId) {
+				campusEncontrado = campus;
+				break;
+			}
+		}
+		return campusEncontrado;
+	}
+
+	private void createEditorLayout(SplitLayout splitLayout) {
         Div editorLayoutDiv = new Div();
         editorLayoutDiv.setClassName("editor-layout");
 
@@ -176,7 +200,35 @@ public class CampusView extends Div implements BeforeEnterObserver {
 
     private void populateForm(Campus value) {
         this.campus = value;
-        binder.readBean(this.campus);
-
+        if(value == null) {
+        	this.nombre.setValue("");
+            this.departamento.setValue("");
+            this.ciudad.setValue("");
+            this.direccion.setValue("");
+            this.telefono.setValue("");
+        }else {
+        	this.nombre.setValue(value.getNombre());
+            this.departamento.setValue(value.getDepartamento());
+            this.ciudad.setValue(value.getCiudad());
+            this.direccion.setValue(value.getDireccion());
+            this.telefono.setValue(value.getTelefono());
+        }
     }
+
+	@Override
+	public void mostrarCampusEnGrid(List<Campus> items) {
+		Collection<Campus> itemsCollection = items;
+		grid.setItems(itemsCollection);
+		this.elementos = items;
+	}
+
+	@Override
+	public void mostrarMensajeError(String mensaje) {
+		Notification.show(mensaje);
+	}
+
+	@Override
+	public void mostrarMensajeExito(String mensaje) {
+		Notification.show(mensaje);
+	}
 }

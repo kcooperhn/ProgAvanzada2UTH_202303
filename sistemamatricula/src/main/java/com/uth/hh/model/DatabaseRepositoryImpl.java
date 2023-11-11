@@ -2,8 +2,10 @@ package com.uth.hh.model;
 
 import java.io.IOException;
 
+import com.uth.hh.data.Campus;
 import com.uth.hh.data.CampusResponse;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -35,7 +37,12 @@ public class DatabaseRepositoryImpl {
 		}else {
 			return null;
 		}
-		
+	}
+	
+	public boolean crearCampus(Campus nuevo) throws IOException {
+		Call<ResponseBody> call = client.getDatabase().crearCampus(nuevo);
+		Response<ResponseBody> response = call.execute();//AQUI SE LLAMA A LA BASE DE DATOS
+		return response.isSuccessful();
 	}
 	
 }

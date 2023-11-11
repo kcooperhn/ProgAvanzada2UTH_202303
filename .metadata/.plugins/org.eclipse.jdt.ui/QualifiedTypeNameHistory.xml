@@ -23,4 +23,18 @@
     <fullyQualifiedTypeName name="com.vaadin.flow.component.combobox.ComboBox"/>
     <fullyQualifiedTypeName name="com.uth.hh.data.Campus"/>
     <fullyQualifiedTypeName name="com.vaadin.flow.component.icon.Icon"/>
+    <fullyQualifiedTypeName name="retrofit2.http.Headers"/>
+    <fullyQualifiedTypeName name="retrofit2.http.GET"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.uth.hh.data.CampusResponse"/>
+    <fullyQualifiedTypeName name="retrofit2.Call"/>
+    <fullyQualifiedTypeName name="retrofit2.Response"/>
+    <fullyQualifiedTypeName name="retrofit2.Retrofit"/>
+    <fullyQualifiedTypeName name="okhttp3.logging.HttpLoggingInterceptor"/>
+    <fullyQualifiedTypeName name="okhttp3.OkHttpClient"/>
+    <fullyQualifiedTypeName name="okhttp3.OkHttpClient.Builder"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+    <fullyQualifiedTypeName name="retrofit2.converter.gson.GsonConverterFactory"/>
+    <fullyQualifiedTypeName name="com.google.gson.GsonBuilder"/>
+    <fullyQualifiedTypeName name="com.uth.hh.model.DatabaseRepository"/>
 </qualifiedTypeNameHistroy>

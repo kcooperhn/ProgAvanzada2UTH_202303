@@ -1,0 +1,7 @@
+package com.uth.hh.controller;
+
+public interface CampusInteractor {
+
+	void consultarCampus();
+
+}
