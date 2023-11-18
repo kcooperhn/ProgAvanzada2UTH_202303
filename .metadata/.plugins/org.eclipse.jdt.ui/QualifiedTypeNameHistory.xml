@@ -21,7 +21,6 @@
     <fullyQualifiedTypeName name="com.vaadin.flow.component.textfield.EmailField"/>
     <fullyQualifiedTypeName name="com.vaadin.flow.component.icon.VaadinIcon"/>
     <fullyQualifiedTypeName name="com.vaadin.flow.component.combobox.ComboBox"/>
-    <fullyQualifiedTypeName name="com.uth.hh.data.Campus"/>
     <fullyQualifiedTypeName name="com.vaadin.flow.component.icon.Icon"/>
     <fullyQualifiedTypeName name="retrofit2.http.Headers"/>
     <fullyQualifiedTypeName name="retrofit2.http.GET"/>
@@ -37,4 +36,15 @@
     <fullyQualifiedTypeName name="retrofit2.converter.gson.GsonConverterFactory"/>
     <fullyQualifiedTypeName name="com.google.gson.GsonBuilder"/>
     <fullyQualifiedTypeName name="com.uth.hh.model.DatabaseRepository"/>
+    <fullyQualifiedTypeName name="com.uth.hh.model.DatabaseRepositoryImpl"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="com.uth.hh.views.campus.CampusViewModel"/>
+    <fullyQualifiedTypeName name="com.uth.hh.controller.CampusInteractor"/>
+    <fullyQualifiedTypeName name="com.uth.hh.controller.CampusInteractorImpl"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="retrofit2.http.Body"/>
+    <fullyQualifiedTypeName name="retrofit2.http.POST"/>
+    <fullyQualifiedTypeName name="okhttp3.ResponseBody"/>
+    <fullyQualifiedTypeName name="com.uth.hh.data.Campus"/>
 </qualifiedTypeNameHistroy>

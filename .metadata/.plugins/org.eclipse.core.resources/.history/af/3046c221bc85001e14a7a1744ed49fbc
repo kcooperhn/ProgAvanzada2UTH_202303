@@ -1,0 +1,11 @@
+package com.uth.hh.controller;
+
+import com.uth.hh.data.Alumno;
+
+public interface AlumnosInteractor {
+
+	void consultarAlumnos();
+	void crearAlumnos(Alumno nuevo);
+	void actualizarAlumnos(Alumno existente);
+	void eliminarAlumnos(String numerocuenta);
+}

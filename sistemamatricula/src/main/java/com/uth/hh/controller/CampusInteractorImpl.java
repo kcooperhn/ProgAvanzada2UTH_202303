@@ -46,4 +46,31 @@ public class CampusInteractorImpl implements CampusInteractor {
 		}
 	}
 
+	@Override
+	public void actualizarCampus(Campus existente) {
+		try {
+			boolean creado = this.modelo.actualizarCampus(existente);
+			if(creado == true) {
+				this.vista.mostrarMensajeExito("Campus modificado exitosamente!");
+			}else {
+				this.vista.mostrarMensajeError("Hubo un problema al modificar el campus");
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void eliminarCampus(Integer id) {
+		try {
+			boolean eliminado = this.modelo.eliminarCampus(id);
+			if(eliminado == true) {
+				this.vista.mostrarMensajeExito("Campus borrado exitosamente!");
+			}else {
+				this.vista.mostrarMensajeError("Hubo un problema al borrar el campus");
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

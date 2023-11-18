@@ -6,4 +6,6 @@ public interface CampusInteractor {
 
 	void consultarCampus();
 	void crearCampus(Campus nuevo);
+	void actualizarCampus(Campus existente);
+	void eliminarCampus(Integer id);
 }

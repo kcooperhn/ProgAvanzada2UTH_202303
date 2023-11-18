@@ -14,10 +14,13 @@ import com.uth.hh.views.MainLayout;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.notification.Notification.Position;
@@ -48,6 +51,9 @@ public class CampusView extends Div implements BeforeEnterObserver, CampusViewMo
 
     private final Button cancel = new Button("Cancelar");
     private final Button save = new Button("Guardar");
+    private final Button delete = new Button("Eliminar", new Icon(VaadinIcon.TRASH));
+    
+    private ConfirmDialog deleteDialog;
 
     private Campus campus;
     private CampusInteractor controlador;
@@ -107,9 +113,13 @@ public class CampusView extends Div implements BeforeEnterObserver, CampusViewMo
                     this.controlador.crearCampus(campus);
                 }else {
                 	//ESTOY ACTUALIZANDO UNO QUE YA EXISTE
-                	
-                	
-                	
+                	this.campus.setNombre(this.nombre.getValue());
+                    this.campus.setDepartamento(this.departamento.getValue());
+                    this.campus.setCiudad(this.ciudad.getValue());
+                    this.campus.setDireccion(this.direccion.getValue());
+                    this.campus.setTelefono(this.telefono.getValue());
+                    
+                    this.controlador.actualizarCampus(campus);
                 }
                 clearForm();
                 refreshGrid();
@@ -121,6 +131,11 @@ public class CampusView extends Div implements BeforeEnterObserver, CampusViewMo
                 n.addThemeVariants(NotificationVariant.LUMO_ERROR);
             }
         });
+        
+        delete.addClickListener( e -> {
+        	deleteDialog.open();
+        });
+        delete.setEnabled(false);
     }
 
     @Override
@@ -169,6 +184,20 @@ public class CampusView extends Div implements BeforeEnterObserver, CampusViewMo
 
         editorDiv.add(formLayout);
         createButtonLayout(editorLayoutDiv);
+        
+        deleteDialog = new ConfirmDialog();
+        deleteDialog.setHeader("¿Desea eliminar este campus?");
+        deleteDialog.setText(
+                "Confirma la eliminación del campus seleccionado");
+
+        deleteDialog.setCancelable(true);
+        deleteDialog.setCancelText("Cancelar");
+        deleteDialog.setConfirmText("Eliminar");
+        deleteDialog.setConfirmButtonTheme("error primary");
+        deleteDialog.addConfirmListener(event -> {
+        	this.controlador.eliminarCampus(this.campus.getId());
+        	refreshGrid();
+        });
 
         splitLayout.addToSecondary(editorLayoutDiv);
     }
@@ -178,7 +207,9 @@ public class CampusView extends Div implements BeforeEnterObserver, CampusViewMo
         buttonLayout.setClassName("button-layout");
         cancel.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        buttonLayout.add(save, cancel);
+        delete.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_ERROR);
+
+        buttonLayout.add(save, cancel, delete);
         editorLayoutDiv.add(buttonLayout);
     }
 
@@ -192,6 +223,7 @@ public class CampusView extends Div implements BeforeEnterObserver, CampusViewMo
     private void refreshGrid() {
         grid.select(null);
         grid.getDataProvider().refreshAll();
+        this.controlador.consultarCampus();
     }
 
     private void clearForm() {
@@ -206,12 +238,14 @@ public class CampusView extends Div implements BeforeEnterObserver, CampusViewMo
             this.ciudad.setValue("");
             this.direccion.setValue("");
             this.telefono.setValue("");
+            delete.setEnabled(false);
         }else {
         	this.nombre.setValue(value.getNombre());
             this.departamento.setValue(value.getDepartamento());
             this.ciudad.setValue(value.getCiudad());
             this.direccion.setValue(value.getDireccion());
             this.telefono.setValue(value.getTelefono());
+            delete.setEnabled(true);
         }
     }
 
