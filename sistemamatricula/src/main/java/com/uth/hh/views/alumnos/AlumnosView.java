@@ -47,7 +47,7 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
 
     private final Grid<Alumno> grid = new Grid<>(Alumno.class, false);
 
-    private NumberField numerocuenta;
+    private TextField numerocuenta;
     private TextField nombre;
     private TextField apellido;
     private ComboBox<String> genero;
@@ -63,12 +63,14 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
     private Alumno alumno;
     private AlumnosInteractor controladorAlumnos;
     private List<Alumno> elementos;
+    private List<Campus> campusDisponibles;
 
     public AlumnosView() {
         addClassNames("alumnos-view");
 
         controladorAlumnos = new AlumnosInteractorImpl(this);
         this.elementos = new ArrayList<>();
+        this.campusDisponibles = new ArrayList<>();
         // Create UI
         SplitLayout splitLayout = new SplitLayout();
 
@@ -84,7 +86,7 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
         grid.addColumn("genero").setAutoWidth(true).setHeader("Género");
         grid.addColumn("email").setAutoWidth(true).setHeader("Correo Electrónico");
         grid.addColumn("telefono").setAutoWidth(true).setHeader("Teléfono");
-        grid.addColumn("campus").setAutoWidth(true);
+        grid.addColumn("nombrecampus").setAutoWidth(true).setHeader("Campus");
 
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
 
@@ -98,6 +100,7 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
             }
         });
 
+        cancel.setId("btncancelar");
         cancel.addClickListener(e -> {
             clearForm();
             refreshGrid();
@@ -118,7 +121,14 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
                     this.alumno.setEmail(this.email.getValue());
                     this.alumno.setGenero(this.genero.getValue());
                     
-                    this.controladorAlumnos.crearAlumno(alumno);
+                    //VALIDO SI HAY UN ELEMENTO SELECCIONADO
+                    if(campus.getValue() != null) {
+                    	Integer idCampus = campus.getValue().getId();
+    					this.alumno.setCampus(idCampus);
+    					this.controladorAlumnos.crearAlumno(alumno);
+                    }else {
+                    	Notification.show("Debes de seleccionar un campus para crear un alumno");
+                    }
                 }else {
                 	//ESTOY ACTUALIZANDO UNO QUE YA EXISTE
                     this.alumno.setNombre(this.nombre.getValue());
@@ -126,8 +136,14 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
                     this.alumno.setTelefono(this.telefono.getValue());
                     this.alumno.setEmail(this.email.getValue());
                     this.alumno.setGenero(this.genero.getValue());
-                    
-                    this.controladorAlumnos.actualizarAlumno(alumno);
+                  //VALIDO SI HAY UN ELEMENTO SELECCIONADO
+                    if(campus.getValue() != null) {
+                    	Integer idCampus = campus.getValue().getId();
+    					this.alumno.setCampus(idCampus);
+    					this.controladorAlumnos.actualizarAlumno(alumno);
+                    }else {
+                    	Notification.show("Debes de seleccionar un campus para actualizar un alumno");
+                    }
                 }
                 clearForm();
                 refreshGrid();
@@ -140,11 +156,13 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
             }
         });
         
+        delete.setId("btndelete");
         delete.addClickListener( e -> {
         	this.deleteDialog.open();
         });
         
         this.controladorAlumnos.consultarAlumnos();
+        this.controladorAlumnos.consultarCampus();
     }
 
     @Override
@@ -184,24 +202,26 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
 
         FormLayout formLayout = new FormLayout();
         
-        numerocuenta = new NumberField();
+        numerocuenta = new TextField();
         numerocuenta.setId("txtnumerocuenta");
         numerocuenta.setLabel("Número de Cuenta");
-        numerocuenta.setValue(0.0);
         
         nombre = new TextField("Nombre del Alumno");
         nombre.setId("txtnombre");
         nombre.setPrefixComponent(VaadinIcon.USER.create());
         
         apellido = new TextField("Apellido del Alumno");
+        apellido.setId("txtapellido");
         apellido.setPrefixComponent(VaadinIcon.USER_CARD.create());
         
         genero = new ComboBox<>("Genero");
+        genero.setId("cbgenero");
         genero.setAllowCustomValue(true);
         genero.setItems("Masculino", "Femenino");
         genero.setHelperText("Seleccione el genero del alumno");
         
         email = new EmailField();
+        email.setId("txtemail");
         email.setLabel("Correo Electrónico");
         email.getElement().setAttribute("name", "email");
         email.setValue("");
@@ -209,14 +229,15 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
         email.setClearButtonVisible(true);
         
         telefono = new TextField("Teléfono");
-        
+        telefono.setId("txttelefono");
         telefono.setRequiredIndicatorVisible(true);
         telefono.setPattern("^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{4}[-s.]?[0-9]{4}$");
         telefono.setAllowedCharPattern("[0-9()+-]");
         telefono.setMinLength(8);
         telefono.setMaxLength(12);
         
-        ComboBox<Campus> campus = new ComboBox<>("Campus");
+        campus = new ComboBox<>("Campus");
+        campus.setId("cbcampus");
         campus.setItemLabelGenerator(Campus::getNombre);
         
         
@@ -277,25 +298,39 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
         this.alumno = value;
 
         if(value == null) {
+        	this.numerocuenta.setEnabled(true);
         	this.nombre.setValue("");
             this.apellido.setValue("");
-            this.numerocuenta.setValue(0.0);
+            this.numerocuenta.setValue("");
             this.genero.setValue("");
             this.telefono.setValue("");
             this.email.setValue("");
             this.campus.clear();
             delete.setEnabled(false);
         }else {
+        	this.numerocuenta.setEnabled(false);
             this.nombre.setValue(value.getNombre());
             this.apellido.setValue(value.getApellido());
-            this.numerocuenta.setValue(Double.parseDouble(value.getNumerocuenta()));
-            //this.genero.setValue(value.getGenero());
+            this.numerocuenta.setValue(value.getNumerocuenta());
+            this.genero.setValue(value.getGenero());
             this.telefono.setValue(value.getTelefono());
             this.email.setValue(value.getEmail());
-            //this.campus.setValue(value.getCampus());
+            Campus campusSeleccionado = buscarCampus(value.getCampus());
+            this.campus.setValue(campusSeleccionado);
             delete.setEnabled(true);
         }
     }
+
+	private Campus buscarCampus(Integer id) {
+		Campus campusEncontrado = null;
+		for (Campus campus : campusDisponibles) {
+			if(campus.getId() == id) {
+				campusEncontrado = campus;
+				break;
+			}
+		}
+		return campusEncontrado;
+	}
 
 	@Override
 	public void mostrarAlumnosEnGrid(List<Alumno> items) {
@@ -312,5 +347,11 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
 	@Override
 	public void mostrarMensajeExito(String mensaje) {
 		Notification.show(mensaje);
+	}
+
+	@Override
+	public void llenarComboboxCampus(List<Campus> items) {
+		campus.setItems(items);
+		campusDisponibles = items;
 	}
 }

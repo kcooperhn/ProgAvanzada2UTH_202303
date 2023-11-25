@@ -8,4 +8,5 @@ public interface AlumnosInteractor {
 	void crearAlumno(Alumno nuevo);
 	void actualizarAlumno(Alumno existente);
 	void eliminarAlumno(String numerocuenta);
+	void consultarCampus();
 }

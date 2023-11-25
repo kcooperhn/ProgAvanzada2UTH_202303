@@ -9,6 +9,7 @@ public class Alumno {
     private String email;
     private String telefono;
     private Integer campus;
+    private String nombrecampus;
 
     public String getNumerocuenta() {
         return numerocuenta;
@@ -52,5 +53,11 @@ public class Alumno {
     public void setCampus(Integer campus) {
         this.campus = campus;
     }
+	public String getNombrecampus() {
+		return nombrecampus;
+	}
+	public void setNombrecampus(String nombrecampus) {
+		this.nombrecampus = nombrecampus;
+	}
 
 }

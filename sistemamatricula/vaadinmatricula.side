@@ -1,0 +1,445 @@
+{
+  "id": "2336bcad-1198-4700-9d4a-469c613ad890",
+  "version": "2.0",
+  "name": "vaadinmatricula",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "fe8b4173-9741-41cc-8747-7b1ac223d32c",
+    "name": "Untitled",
+    "commands": [{
+      "id": "651761d8-54ca-4a00-a159-da7616aad280",
+      "comment": "",
+      "command": "click",
+      "target": "css=vaadin-side-nav-item:nth-child(3)",
+      "targets": [
+        ["css=vaadin-side-nav-item:nth-child(3)", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/vaadin-scroller/vaadin-side-nav/vaadin-side-nav-item[3]", "xpath:idRelative"],
+        ["xpath=//vaadin-side-nav-item[3]", "xpath:position"],
+        ["xpath=//vaadin-side-nav-item[contains(.,'Alumnos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "06e023b0-495e-411a-b770-d209db856b97",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//vaadin-combo-box[@id='cbcampus']/input",
+      "targets": [
+        ["id=input-vaadin-combo-box-30", "id"],
+        ["css=#input-vaadin-combo-box-30", "css:finder"],
+        ["xpath=//input[@id='input-vaadin-combo-box-30']", "xpath:attributes"],
+        ["xpath=//vaadin-combo-box[@id='cbcampus']/input", "xpath:idRelative"],
+        ["xpath=//vaadin-combo-box[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3ec1054-b67a-480c-9a97-ee354b97db23",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "963b511e-f9c7-4fd5-b431-0696e39d5906",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//vaadin-combo-box-item[3]",
+      "targets": [
+        ["id=vaadin-combo-box-item-2", "id"],
+        ["css=#vaadin-combo-box-item-2", "css:finder"],
+        ["xpath=//vaadin-combo-box-item[@id='vaadin-combo-box-item-2']", "xpath:attributes"],
+        ["xpath=//vaadin-combo-box-scroller[@id='vaadin-combo-box-scroller-29']/vaadin-combo-box-item[3]", "xpath:idRelative"],
+        ["xpath=//vaadin-combo-box-item[3]", "xpath:position"],
+        ["xpath=//vaadin-combo-box-item[contains(.,'Tegucigalpa')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b24b7a87-6ea4-4cca-b709-0545ab0ecdf4",
+      "comment": "",
+      "command": "open",
+      "target": "/alumnos",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8f63fbb4-3ac4-452d-b21d-4e8d00b8aecd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1616x868",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3318c06b-9c3c-4637-af1c-19cf119936cf",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=vaadin-split-layout",
+      "targets": [
+        ["css=vaadin-split-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-split-layout", "xpath:position"]
+      ],
+      "value": "734,357"
+    }, {
+      "id": "3efe0e37-4c7f-4dea-89a8-81c86f7e5f1c",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=vaadin-split-layout",
+      "targets": [
+        ["css=vaadin-split-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-split-layout", "xpath:position"]
+      ],
+      "value": "734,357"
+    }, {
+      "id": "3673168e-abf3-4f48-84dc-305cb395586e",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=vaadin-split-layout",
+      "targets": [
+        ["css=vaadin-split-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-split-layout", "xpath:position"]
+      ],
+      "value": "734,357"
+    }, {
+      "id": "c9d96801-6676-477f-bae9-7c76b7457875",
+      "comment": "",
+      "command": "click",
+      "target": "css=vaadin-split-layout",
+      "targets": [
+        ["css=vaadin-split-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-split-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd308a76-c470-4408-ac3b-56d8a9c3b131",
+      "comment": "",
+      "command": "click",
+      "target": "id=btncancelar",
+      "targets": [
+        ["id=btncancelar", "id"],
+        ["css=#btncancelar", "css:finder"],
+        ["xpath=//vaadin-button[@id='btncancelar']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[2]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[2]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Cancelar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5632801b-48b1-4160-b391-027e869e3833",
+      "comment": "",
+      "command": "click",
+      "target": "id=btncancelar",
+      "targets": [
+        ["id=btncancelar", "id"],
+        ["css=#btncancelar", "css:finder"],
+        ["xpath=//vaadin-button[@id='btncancelar']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[2]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[2]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Cancelar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9690ba49-0720-4bab-844a-6fd25193303f",
+      "comment": "",
+      "command": "click",
+      "target": "id=btncancelar",
+      "targets": [
+        ["id=btncancelar", "id"],
+        ["css=#btncancelar", "css:finder"],
+        ["xpath=//vaadin-button[@id='btncancelar']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[2]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[2]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Cancelar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0fbfeca6-671c-4dab-bc3f-6c02a753d49f",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=btncancelar",
+      "targets": [
+        ["id=btncancelar", "id"],
+        ["css=#btncancelar", "css:finder"],
+        ["xpath=//vaadin-button[@id='btncancelar']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[2]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[2]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Cancelar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc11a94b-2811-41c4-b43e-7d2fbaff64ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "780036c6-9f48-458e-9342-ad6b6a5b72a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cfba607d-a1ee-4cba-989f-9670d4de634d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d9e3f43-2193-4a12-96d8-60bbadcedfae",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a953951b-ec89-48b3-b11a-dbe5b6590ea6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "85218cf3-14a8-4ddd-a7da-737d2c8f8271",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "731c97c6-d040-4741-8fe2-55c8310dfed7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db210767-c67b-4824-a84a-7e348f977410",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "226d50b9-894c-4af6-bc53-075faeca0c14",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.button-layout",
+      "targets": [
+        ["css=.button-layout", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout", "xpath:idRelative"],
+        ["xpath=//vaadin-horizontal-layout", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e3724a5-e413-4846-af3c-9a5cd6bf7544",
+      "comment": "",
+      "command": "click",
+      "target": "css=vaadin-grid-cell-content:nth-child(31)",
+      "targets": [
+        ["css=vaadin-grid-cell-content:nth-child(31)", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div/vaadin-grid/vaadin-grid-cell-content[24]", "xpath:idRelative"],
+        ["xpath=//vaadin-grid-cell-content[24]", "xpath:position"],
+        ["xpath=//vaadin-grid-cell-content[contains(.,'Flores Maldonado')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "974410c6-8f18-49a4-9917-e630e7521791",
+      "comment": "",
+      "command": "click",
+      "target": "css=.editor",
+      "targets": [
+        ["css=.editor", "css:finder"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3920ac0-d540-4204-b882-bc167182baa5",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=btndelete",
+      "targets": [
+        ["id=btndelete", "id"],
+        ["css=#btndelete", "css:finder"],
+        ["xpath=//vaadin-button[@id='btndelete']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[3]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[3]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Eliminar')]", "xpath:innerText"]
+      ],
+      "value": "61.5,16"
+    }, {
+      "id": "62865978-feed-4d8a-b106-535aee648d0c",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=btndelete",
+      "targets": [
+        ["id=btndelete", "id"],
+        ["css=#btndelete", "css:finder"],
+        ["xpath=//vaadin-button[@id='btndelete']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[3]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[3]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Eliminar')]", "xpath:innerText"]
+      ],
+      "value": "61.5,16"
+    }, {
+      "id": "c9592b5c-6b54-4469-8948-e503109b53c1",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=btndelete",
+      "targets": [
+        ["id=btndelete", "id"],
+        ["css=#btndelete", "css:finder"],
+        ["xpath=//vaadin-button[@id='btndelete']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[3]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[3]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Eliminar')]", "xpath:innerText"]
+      ],
+      "value": "61.5,16"
+    }, {
+      "id": "23027c94-ea71-4005-9a00-94033868135f",
+      "comment": "",
+      "command": "click",
+      "target": "id=btndelete",
+      "targets": [
+        ["id=btndelete", "id"],
+        ["css=#btndelete", "css:finder"],
+        ["xpath=//vaadin-button[@id='btndelete']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[3]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[3]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Eliminar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "14de4f62-6521-4278-9ed1-47c02658b8bc",
+      "comment": "",
+      "command": "click",
+      "target": "css=#overlay > vaadin-button:nth-child(3)",
+      "targets": [
+        ["css=#overlay > vaadin-button:nth-child(3)", "css:finder"],
+        ["xpath=//vaadin-confirm-dialog-overlay[@id='overlay']/vaadin-button", "xpath:idRelative"],
+        ["xpath=//vaadin-confirm-dialog-overlay/vaadin-button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48493f52-847b-4ff5-877b-80b67fc660b4",
+      "comment": "",
+      "command": "click",
+      "target": "id=btndelete",
+      "targets": [
+        ["id=btndelete", "id"],
+        ["css=#btndelete", "css:finder"],
+        ["xpath=//vaadin-button[@id='btndelete']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[3]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[3]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Eliminar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbd1d4dc-4891-4a3e-b533-19cb9dadfa5d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#overlay > vaadin-button:nth-child(3)",
+      "targets": [
+        ["css=#overlay > vaadin-button:nth-child(3)", "css:finder"],
+        ["xpath=//vaadin-confirm-dialog-overlay[@id='overlay']/vaadin-button", "xpath:idRelative"],
+        ["xpath=//vaadin-confirm-dialog-overlay/vaadin-button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "24316e81-5e52-43da-9c17-2efd602740f5",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//vaadin-button[@id='btndelete']",
+      "targets": [
+        ["id=btndelete", "id"],
+        ["css=#btndelete", "css:finder"],
+        ["xpath=//vaadin-button[@id='btndelete']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[3]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[3]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Eliminar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a6dc29d-c6bf-4470-b7ba-14588da94434",
+      "comment": "",
+      "command": "click",
+      "target": "css=#overlay > vaadin-button:nth-child(3)",
+      "targets": [
+        ["css=#overlay > vaadin-button:nth-child(3)", "css:finder"],
+        ["xpath=//vaadin-confirm-dialog-overlay[@id='overlay']/vaadin-button", "xpath:idRelative"],
+        ["xpath=//vaadin-confirm-dialog-overlay/vaadin-button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66ff6707-01c5-463d-aa95-bb5c74453392",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//vaadin-button[@id='btncancelar']",
+      "targets": [
+        ["id=btncancelar", "id"],
+        ["css=#btncancelar", "css:finder"],
+        ["xpath=//vaadin-button[@id='btncancelar']", "xpath:attributes"],
+        ["xpath=//flow-container-root-2521314[@id='ROOT-2521314']/vaadin-app-layout/div/vaadin-split-layout/div[2]/vaadin-horizontal-layout/vaadin-button[2]", "xpath:idRelative"],
+        ["xpath=//vaadin-button[2]", "xpath:position"],
+        ["xpath=//vaadin-button[contains(.,'Cancelar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c149a26b-1cad-41ed-afa1-e0dabd20bedb",
+      "comment": "",
+      "command": "click",
+      "target": "css=#btncancelar > vaadin-icon",
+      "targets": [
+        ["css=#btncancelar > vaadin-icon", "css:finder"],
+        ["xpath=//vaadin-button[@id='btncancelar']/vaadin-icon", "xpath:idRelative"],
+        ["xpath=//vaadin-button[2]/vaadin-icon", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ca885442-e320-4721-80e9-f98024ba0a74",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["fe8b4173-9741-41cc-8747-7b1ac223d32c"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

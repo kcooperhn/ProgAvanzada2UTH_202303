@@ -67,6 +67,10 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\projects\ProgAvan2UTH_202303\PAII_2023-3\sistemafarmacian\sistemafarmacian"/>
+			<item value="C:\projects\ProgAvan2UTH_202303\Proyecto2parcial"/>
+			<item value="C:\projects\ProgAvan2UTH_202303\sistema-paquetesturisticos"/>
+			<item value="C:\projects\ProgAvan2UTH_202303\tareaPAIIGrupo3UTH\TareaPA2-IIParcial-main"/>
 			<item value="C:\Users\kj_al\Downloads\Tareas1P\FranklinTeruel\Areas_Franklin-main\areas-junit\areas-junit"/>
 			<item value="C:\Users\kj_al\Downloads\Tareas1P\PrincessSmith\Area-de-figuras-geom-trica-main\Calcular-Area\Calcular-Area"/>
 			<item value="C:\Users\kj_al\Downloads\Tareas1P\CristhianReynaldo\Tarea-1_Parcial_-I-main\Tarea_1\Tarea_1"/>
@@ -78,7 +82,6 @@
 			<item value="C:\projects\ProgAvan2UTH_202303\sistemamatricula"/>
 			<item value="C:\projects\ProgAvan2UTH_202303\sistema-matricula"/>
 			<item value="C:\Users\kj_al\Downloads\Tareas1P\OscarCalixTarea1\Tarea1"/>
-			<item value="C:\projects\ProgAvan2UTH_202303\my-app"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

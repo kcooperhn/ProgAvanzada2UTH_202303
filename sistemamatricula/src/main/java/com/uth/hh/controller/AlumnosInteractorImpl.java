@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.uth.hh.data.Alumno;
 import com.uth.hh.data.AlumnosResponse;
+import com.uth.hh.data.CampusResponse;
 import com.uth.hh.model.DatabaseRepositoryImpl;
 import com.uth.hh.views.alumnos.AlumnosViewModel;
 
@@ -68,6 +69,18 @@ public class AlumnosInteractorImpl implements AlumnosInteractor {
 				this.vista.mostrarMensajeExito("Alumno borrado exitosamente!");
 			}else {
 				this.vista.mostrarMensajeError("Hubo un problema al borrar el alumno");
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void consultarCampus() {
+		try {
+			CampusResponse respuesta = this.modelo.consultarCampus();
+			if(respuesta != null && respuesta.getItems() != null) {
+				this.vista.llenarComboboxCampus(respuesta.getItems());
 			}
 		}catch(IOException e) {
 			e.printStackTrace();

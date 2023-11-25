@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
+import java.util.Random;
+
 
 
 public class AlumnosTest {
@@ -21,21 +23,52 @@ public class AlumnosTest {
 			
 			 new WebDriverWait(driver, ofSeconds(30), ofSeconds(1))
 	         .until(titleIs("Alumnos"));
-			
-			//WebElement campocuenta = driver.findElement(By.xpath("//input[@id='input-vaadin-text-field-22']"));
-			//WebElement campocuenta = driver.findElement(By.xpath("//vaadin-text-field[@id='txtnumerocuenta']/input"));
+						
 			WebElement camponombre = driver.findElement(By.xpath("//vaadin-text-field[@id='txtnombre']/input"));
+			WebElement campotelefono = driver.findElement(By.xpath("//vaadin-text-field[@id='txttelefono']/input"));
+			WebElement campoemail = driver.findElement(By.xpath("//vaadin-email-field[@id='txtemail']/input"));
+			WebElement campoapellido = driver.findElement(By.xpath("//vaadin-text-field[@id='txtapellido']/input"));
+			WebElement campogenero = driver.findElement(By.xpath("//vaadin-combo-box[@id='cbgenero']/input"));
+			WebElement campocuenta = driver.findElement(By.xpath("//vaadin-text-field[@id='txtnumerocuenta']/input"));
+			WebElement campocampus = driver.findElement(By.xpath("//vaadin-combo-box[@id='cbcampus']/input"));
+			Random rd = new Random();
+			campocuenta.click();
+			int cuentaAleatorio = rd.nextInt() * 200000;
+			cuentaAleatorio = Math.abs(cuentaAleatorio);
+			campocuenta.sendKeys(cuentaAleatorio+"6789");
 			
-			/*campocuenta.click();
-			campocuenta.sendKeys("2023123456789");*/
-			Thread.sleep(10000);
 			camponombre.click();
-			camponombre.sendKeys("pedro perez");
+			camponombre.sendKeys("Pedro Antonio");
+			
+			campoapellido.click();
+			campoapellido.sendKeys("Perez Raudales");
+			
+			campoemail.click();
+			campoemail.sendKeys("perezraudales@gmail.com");
+			
+			campotelefono.click();
+			
+			int telAleatorio = rd.nextInt() * 900000;
+			telAleatorio = Math.abs(telAleatorio);
+			campotelefono.sendKeys(telAleatorio+"");
+			
+			campogenero.click();
+			//SELECCIONAMOS EL PRIMER ELEMENTO DEL COMBO DE GENERO (ELEMENTO SUB 0)
+			WebElement generoSeleccionar = driver.findElement(By.xpath("//vaadin-combo-box-item[@id='vaadin-combo-box-item-0']"));
+			generoSeleccionar.click();
+			
+			campocampus.click();
+			WebElement campusSeleccionar = driver.findElement(By.xpath("//vaadin-combo-box-item[3]"));
+			campusSeleccionar.click();
+			
 			Thread.sleep(1000);
-			WebElement boton = driver.findElement(By.xpath("//vaadin-button[@id='btnguardaralumno']"));
-			boton.click();
+			WebElement botonGuardar = driver.findElement(By.xpath("//vaadin-button[@id='btnguardaralumno']"));
+			botonGuardar.click();
 			
 			Thread.sleep(5000);
+			
+			WebElement botonCancelar = driver.findElement(By.xpath("//vaadin-button[@id='btncancelar']"));
+			WebElement botonEliminar = driver.findElement(By.xpath("//vaadin-button[@id='btndelete']"));
 
 		} finally {
 	      //Ends the browser session

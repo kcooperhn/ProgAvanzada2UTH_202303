@@ -1,0 +1,73 @@
+package sistemamatricula.test;
+
+import static java.time.Duration.ofSeconds;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
+
+
+
+public class AlumnosTest {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		try {
+		
+			driver.get("http://localhost:8080/alumnos");
+			
+			 new WebDriverWait(driver, ofSeconds(30), ofSeconds(1))
+	         .until(titleIs("Alumnos"));
+						
+			WebElement camponombre = driver.findElement(By.xpath("//vaadin-text-field[@id='txtnombre']/input"));
+			WebElement campotelefono = driver.findElement(By.xpath("//vaadin-text-field[@id='txttelefono']/input"));
+			WebElement campoemail = driver.findElement(By.xpath("//vaadin-email-field[@id='txtemail']/input"));
+			WebElement campoapellido = driver.findElement(By.xpath("//vaadin-text-field[@id='txtapellido']/input"));
+			WebElement campogenero = driver.findElement(By.xpath("//vaadin-combo-box[@id='cbgenero']/input"));
+			WebElement campocuenta = driver.findElement(By.xpath("//vaadin-number-field[@id='txtnumerocuenta']/input"));
+			WebElement campocampus = driver.findElement(By.xpath("//vaadin-combo-box[@id='cbcampus']/input"));
+			
+			
+			campocuenta.click();
+			campocuenta.sendKeys("2023123456789");
+			
+			camponombre.click();
+			camponombre.sendKeys("pedro");
+			
+			campoapellido.click();
+			campoapellido.sendKeys("perez");
+			
+			campoemail.click();
+			campoemail.sendKeys("perez@gmail.com");
+			
+			campotelefono.click();
+			campotelefono.sendKeys("99325588");
+			
+			campogenero.click();
+			//SELECCIONAMOS EL PRIMER ELEMENTO DEL COMBO DE GENERO (ELEMENTO SUB 0)
+			WebElement generoSeleccionar = driver.findElement(By.xpath("//vaadin-combo-box-item[@id='vaadin-combo-box-item-0']"));
+			generoSeleccionar.click();
+			
+			Thread.sleep(6000);
+			WebElement botonGuardar = driver.findElement(By.xpath("//vaadin-button[@id='btnguardaralumno']"));
+			botonGuardar.click();
+			
+			Thread.sleep(6000);
+			
+			WebElement botonCancelar = driver.findElement(By.xpath("vaadin-button[@id='btncancel']"));
+			WebElement botonEliminar = driver.findElement(By.xpath("vaadin-button[@id='btncancel']"));
+
+		} finally {
+	      //Ends the browser session
+	      driver.quit();
+	  }
+	}
+	
+	@Test
+	public void guardarTest() {
+		
+	}
+}
