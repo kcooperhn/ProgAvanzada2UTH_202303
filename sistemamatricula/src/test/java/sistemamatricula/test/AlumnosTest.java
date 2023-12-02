@@ -1,21 +1,29 @@
 package sistemamatricula.test;
 
 import static java.time.Duration.ofSeconds;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 
-
 public class AlumnosTest {
-
-	public static void main(String[] args) throws InterruptedException {
+	
+	private static String basePath = "C:\\projects\\testing\\sistemamatricula\\";
+	
+	@Test
+	public void guardarTest() throws IOException {
 		WebDriver driver = new ChromeDriver();
 		try {
 		
@@ -38,13 +46,13 @@ public class AlumnosTest {
 			campocuenta.sendKeys(cuentaAleatorio+"6789");
 			
 			camponombre.click();
-			camponombre.sendKeys("Pedro Antonio");
+			camponombre.sendKeys("Sofia Sarai");
 			
 			campoapellido.click();
 			campoapellido.sendKeys("Perez Raudales");
 			
 			campoemail.click();
-			campoemail.sendKeys("perezraudales@gmail.com");
+			campoemail.sendKeys("sofiasarai@gmail.com");
 			
 			campotelefono.click();
 			
@@ -60,12 +68,12 @@ public class AlumnosTest {
 			campocampus.click();
 			WebElement campusSeleccionar = driver.findElement(By.xpath("//vaadin-combo-box-item[3]"));
 			campusSeleccionar.click();
+			tomarCapturaPantalla(driver, "prueba1-1.png");
 			
-			Thread.sleep(1000);
 			WebElement botonGuardar = driver.findElement(By.xpath("//vaadin-button[@id='btnguardaralumno']"));
 			botonGuardar.click();
 			
-			Thread.sleep(5000);
+			tomarCapturaPantalla(driver, "prueba1-2.png");
 			
 			WebElement botonCancelar = driver.findElement(By.xpath("//vaadin-button[@id='btncancelar']"));
 			WebElement botonEliminar = driver.findElement(By.xpath("//vaadin-button[@id='btndelete']"));
@@ -76,8 +84,17 @@ public class AlumnosTest {
 	  }
 	}
 	
-	@Test
-	public void guardarTest() {
+	public void tomarCapturaPantalla(WebDriver driver, String filePath) throws IOException {
+		//CONVERTIR EL OBJETO WEBDRIVER EN UN OBJETO TAKESCREENSHOT
+		TakesScreenshot screen = ((TakesScreenshot)driver);
 		
+		//LLAMAR AL METODO GETSCREENSHOTAS PARA CREAR LA IMAGEN
+		File file = screen.getScreenshotAs(OutputType.FILE);
+		
+		//MOVER ESE ARCHIVO DE IMAGEN A LA CARPETA DONDE LO NECESITO
+		File destFile = new File(basePath+filePath);
+		
+		//COPIAR EL ARCHIVO EN EL DESTINO
+		FileUtils.copyFile(file, destFile);
 	}
 }

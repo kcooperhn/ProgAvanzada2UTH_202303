@@ -119,30 +119,12 @@
 		  <version>2.9.0</version>
 		</dependency>
         
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.17.0</version>
+        </dependency>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       <!--  <dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-java</artifactId>
-		    <version>4.14.0</version>
-		</dependency>
-
-		<dependency>
-		   <groupId>io.github.bonigarcia</groupId>
-		   <artifactId>webdrivermanager</artifactId>
-		   <version>5.5.3</version>
-		   <scope>test</scope>
-		</dependency>-->
     </dependencies>
 
     <build>
