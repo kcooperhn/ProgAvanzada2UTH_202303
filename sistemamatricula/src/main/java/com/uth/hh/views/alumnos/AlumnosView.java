@@ -5,9 +5,11 @@ import com.uth.hh.controller.AlumnosInteractorImpl;
 import com.uth.hh.controller.CampusInteractor;
 import com.uth.hh.controller.CampusInteractorImpl;
 import com.uth.hh.data.Alumno;
+import com.uth.hh.data.AlumnosReport;
 import com.uth.hh.data.Campus;
 import com.uth.hh.views.MainLayout;
 import com.uth.hh.views.campus.CampusView;
+import com.uth.hn.service.ReportGenerator;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -16,6 +18,8 @@ import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
+import com.vaadin.flow.component.grid.contextmenu.GridContextMenu;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
@@ -34,7 +38,9 @@ import com.vaadin.flow.router.Route;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.orm.ObjectOptimisticLockingFailureException;
 
@@ -98,6 +104,12 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
                 clearForm();
                 UI.getCurrent().navigate(AlumnosView.class);
             }
+        });
+        
+        GridContextMenu<Alumno> menu = grid.addContextMenu();
+        menu.addItem("Generar Reporte", event -> {
+        	Notification.show("Generando reporte...");
+        	generarReporte();
         });
 
         cancel.setId("btncancelar");
@@ -165,7 +177,33 @@ public class AlumnosView extends Div implements BeforeEnterObserver, AlumnosView
         this.controladorAlumnos.consultarCampus();
     }
 
-    @Override
+    private void generarReporte() {
+		ReportGenerator generador = new ReportGenerator();
+		AlumnosReport datasource = new AlumnosReport();
+		datasource.setAlumnos(elementos);
+		Map<String, Object> parametros = new HashMap<>();
+		parametros.put("LOGO_IMG", "logo.jpg");
+		parametros.put("FIRMA_IMG", "firma.png");
+		
+		boolean generado = generador.generarReportePDF("reportealumnos", parametros, datasource);
+		if(generado) {
+			String ubicacion = generador.getReportPath();
+			Anchor url = new Anchor(ubicacion, "Abrir Reporte");
+			url.setTarget("_blank");
+			
+			Notification notificacionReporte = new Notification(url);
+			notificacionReporte.addThemeVariants(NotificationVariant.LUMO_SUCCESS);
+			notificacionReporte.setDuration(10000);
+			notificacionReporte.open();
+		}else {			
+			Notification notificacionError = new Notification("Ocurrió un problema al generar el reporte.");
+			notificacionError.addThemeVariants(NotificationVariant.LUMO_ERROR);
+			notificacionError.setDuration(4000);
+			notificacionError.open();
+		}
+	}
+
+	@Override
     public void beforeEnter(BeforeEnterEvent event) {
     	 Optional<String> alumnoId = event.getRouteParameters().get(ALUMNO_ID);
          if (alumnoId.isPresent()) {

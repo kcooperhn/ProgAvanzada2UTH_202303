@@ -1,8 +1,17 @@
 package com.uth.hn.service;
 
 import java.io.File;
+import java.sql.Connection;
+import java.util.Map;
 
 import org.springframework.util.ResourceUtils;
+
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 public class ReportGenerator {
 
@@ -10,8 +19,25 @@ public class ReportGenerator {
 	private String reportPath;
 	
 	//SIRVE PARA GENERAR Y LLENAR EL REPORTE EN PDF
-	public boolean generarReportePDF() {
+	public boolean generarReportePDF(String nombreReporte, Map<String, Object> parametros, JRDataSource datasource) {
+		boolean reporteGenerado = false;
+		try {
+			//CARGANDO ARCHIVO JASPER EN MEMORIA
+			JasperReport reporte = (JasperReport)JRLoader.loadObjectFromFile(obtenerUbicacionReporte(nombreReporte+".jasper"));
+			//OBJETO QUE SIRVE PARA LLENAR EL REPORTE CON LA INFORMACIÓN DINÁMICA
+			JasperPrint impresora = JasperFillManager.fillReport(reporte, parametros, datasource);
+			String rutaPDF = generarUbicacionReporte() + nombreReporte + ".pdf";
+			reportPath = rutaPDF;
+			//SE GUARDA EL REPORTE EN LA UBICACIÓN GENERADA
+			JasperExportManager.exportReportToPdfFile(impresora, rutaPDF);
+			reporteGenerado = true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			reporteGenerado = false;
+		}
 		
+		
+		return reporteGenerado;
 	}
 	
 	//GENERA UNA UBICACIÓN EN MI MAQUINA DONDE VA A GUARDAR EL ARCHIVO GENERAADO

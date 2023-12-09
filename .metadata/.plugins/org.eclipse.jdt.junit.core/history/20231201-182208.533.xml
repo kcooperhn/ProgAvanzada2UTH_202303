@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="AlumnosTest (1)" project="sistemamatricula" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="sistemamatricula.test.AlumnosTest" time="13.506" displayname="AlumnosTest" uniqueid="[engine:junit-jupiter]/[class:sistemamatricula.test.AlumnosTest]">
-    <testcase name="guardarTest" classname="sistemamatricula.test.AlumnosTest" time="13.506" displayname="guardarTest()" uniqueid="[engine:junit-jupiter]/[class:sistemamatricula.test.AlumnosTest]/[method:guardarTest()]"/>
-  </testsuite>
-</testrun>
